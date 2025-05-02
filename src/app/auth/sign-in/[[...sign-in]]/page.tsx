@@ -11,13 +11,13 @@ export default function SignUpPage() {
     useEffect(() => {
         if (isSignedIn) {
             // Call backend to sync user
-            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/user/me`, {
+            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/sync`, {
                 credentials: 'include', // required if using cookies or Clerk JWTs
             })
                 .then((res) => res.json())
                 .then((data) => {
                     console.log('Synced user:', data);
-                    redirect('/dashboard');
+                    // redirect('/dashboard');
                 })
                 .catch((err) => {
                     console.error('Error syncing user:', err);

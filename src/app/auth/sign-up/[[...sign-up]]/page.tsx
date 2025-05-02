@@ -10,7 +10,7 @@ export default function SignInPage() {
 
     useEffect(() => {
         if (isSignedIn) {
-            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/user/me`, {
+            fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/sync`, {
                 credentials: 'include',
             })
                 .then((res) => res.json())
